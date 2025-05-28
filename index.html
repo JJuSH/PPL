@@ -97,6 +97,13 @@
   <section class="section">
     <div class="container is-max-desktop">
       <h2 class="title is-3">Introduction</h2>
+      <!-- 여기에 이미지 삽입 -->
+      <figure class="image is-16by9">
+        <img src="static/images/PPL_0126_page-0001.jpg" alt="PPL Framework Overview">
+        <figcaption class="has-text-centered is-size-7 mt-2">
+          Figure 1. Overview of the PPL framework
+        </figcaption>
+      </figure>
       <p>
         Policy-labeled Preference Learning (PPL) is a novel RLHF framework designed to overcome the “likelihood mismatch” and stochasticity challenges that arise when learning from pairwise preference data collected under diverse, potentially suboptimal behavior policies. Unlike standard preference-based RL—which assumes all trajectories come from an optimal policy and infers rewards purely from rankings—PPL tags each trajectory segment with its generating policy and computes its regret (the gap between that policy’s performance and the optimal policy). This disentangles the effects of environmental randomness from policy suboptimality, yielding a more reliable learning signal.
       </p>
