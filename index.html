@@ -120,6 +120,13 @@
       <p>
         Our key insight is that when you mix data from both optimal and suboptimal controllers, you get “likelihood mismatch”—differences caused by a poor policy look like random noise. To fix this, PPL tags each trajectory segment with the exact policy that generated it, then scores segments by their <em>regret</em> (i.e., how much worse the behavior policy did versus the optimal one).  
       </p>
+      <!-- 여기에 이미지 삽입 -->
+      <figure class="is-fullwidth">
+        <img src="static/images/Likelihood_Mismatch_page-0001.jpg" alt="Likelihood Mismatch">
+        <figcaption class="has-text-centered is-size-7 mt-2">
+          Figure 2. Likelihood Mismatch
+        </figcaption>
+      </figure>
       <p>
         We train a preference model on these policy-labeled, regret-scaled segments using a convex loss that admits an efficient second-order update. In practice, this lets us disentangle true randomness from suboptimal behavior, yielding much cleaner reward estimates and more stable policy improvements.
       </p>
@@ -134,7 +141,7 @@
       <figure class="image is-16by9">
         <img src="static/images/env.png" alt="Metaworld Environment">
         <figcaption class="has-text-centered is-size-7 mt-2">
-          Figure 2. Metaworld Environments
+          Figure 3. Metaworld Environments
         </figcaption>
       </figure>
       <p>
