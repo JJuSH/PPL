@@ -144,10 +144,25 @@
           Figure 3. Metaworld Environments
         </figcaption>
       </figure>
-      <p>
-        <!-- Experiments 내용을 여기에 작성하세요 -->
-        We present experimental results comparing our method to existing approaches, with both quantitative metrics and qualitative analysis.
-      </p>
+      <p><strong>Experimental Questions</strong><br>
+      We evaluate PPL on three fronts:  
+      1. <em>Offline learning with heterogeneous data</em>: Can PPL learn effectively from mixed-policy offline datasets?  
+      2. <em>Impact of policy labels</em>: Does tagging each segment with its generating policy improve performance?  
+      3. <em>Online RLHF applicability</em>: Can PPL’s regret-based framework be integrated into an online preference-based RL algorithm?</p>
+
+      <p><strong>Setup & Baselines</strong><br>
+      • <strong>Environments:</strong> Six MetaWorld robotic tasks using the same raw rollouts from Hejna et al. (2023).<br>
+      • <strong>Data regimes:</strong><br>
+      &nbsp;&nbsp;– <em>Homogeneous:</em> 100%-success oracle rollouts.<br>
+      &nbsp;&nbsp;– <em>Heterogeneous:</em> Mix of 20% and 50% success-rate policies.<br>
+      &nbsp;&nbsp;– <em>Preference density:</em> “Dense” (all-pair comparisons) vs. “Sparse” (one comparison per segment).<br>
+      • <strong>Labeling:</strong> A pretrained SAC oracle samples 64-step segments and assigns regret-based labels (no critic retraining) to keep label noise uniform.<br>
+      • <strong>Baselines:</strong>  
+      – CPL (no policy labels)  
+      – SFT (supervised fine-tuning via behavior cloning)  
+      – P-IQL (reward-based RLHF + Implicit Q-Learning)</p>
+
+      <p>Full details and reproducibility results appear in Appendices E–H.</p>
     </div>
   </section>
 
