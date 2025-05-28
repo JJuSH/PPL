@@ -98,8 +98,10 @@
     <div class="container is-max-desktop">
       <h2 class="title is-3">Introduction</h2>
       <p>
-        <!-- Introduction 내용을 여기에 작성하세요 -->
-        This section introduces the motivation, challenges, and prior work relevant to policy-labeled preference learning.
+        Policy-labeled Preference Learning (PPL) is a novel RLHF framework designed to overcome the “likelihood mismatch” and stochasticity challenges that arise when learning from pairwise preference data collected under diverse, potentially suboptimal behavior policies. Unlike standard preference-based RL—which assumes all trajectories come from an optimal policy and infers rewards purely from rankings—PPL tags each trajectory segment with its generating policy and computes its regret (the gap between that policy’s performance and the optimal policy). This disentangles the effects of environmental randomness from policy suboptimality, yielding a more reliable learning signal.
+      </p>
+      <p>
+        Building on this regret-based decomposition, PPL incorporates a contrastive KL regularizer that pulls the policy distribution toward preferred trajectories while pushing it away from less preferred ones. Theoretically, PPL defines a reward-equivalence class and shows that regret uniquely determines an optimal policy within that class, addressing reward sparsity and improving stability. Empirically, PPL consistently outperforms existing methods—including DPO, CPL, and P-IQL—on both homogeneous and heterogeneous offline datasets in MetaWorld manipulation tasks, and demonstrates robust success even under sparse-preference settings.
       </p>
     </div>
   </section>
@@ -109,8 +111,10 @@
     <div class="container is-max-desktop">
       <h2 class="title is-3">Method</h2>
       <p>
-        <!-- Method 내용을 여기에 작성하세요 -->
-        We describe our framework for policy-labeled preference learning, including the model architecture, loss functions, and training pipeline.
+        Our key insight is that when you mix data from both optimal and suboptimal controllers, you get “likelihood mismatch”—differences caused by a poor policy look like random noise. To fix this, PPL tags each trajectory segment with the exact policy that generated it, then scores segments by their <em>regret</em> (i.e., how much worse the behavior policy did versus the optimal one).  
+      </p>
+      <p>
+        We train a preference model on these policy-labeled, regret-scaled segments using a convex loss that admits an efficient second-order update. In practice, this lets us disentangle true randomness from suboptimal behavior, yielding much cleaner reward estimates and more stable policy improvements.
       </p>
     </div>
   </section>
